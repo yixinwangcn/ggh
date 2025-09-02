@@ -1,0 +1,5 @@
+{
+  "model": "cogvideox",
+  "prompt": "generate video",
+  "image_url": "https://fileup.chatglm.cn/chatglm-operation/image/23/2301478ca0.png?image_process=format,webp"
+}

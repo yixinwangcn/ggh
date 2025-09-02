@@ -1,0 +1,58 @@
+# 最简单的图生视频 curl 命令
+
+# 基础命令（请替换JWT_TOKEN为你的实际token）
+curl -X POST http://localhost:8000/v1/videos/generations \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN_HERE" \
+  -d '{
+    "model": "cogvideox",
+    "prompt": "让这个可爱的女孩动起来，眨眨眼睛，微笑",
+    "image_url": "https://fileup.chatglm.cn/chatglm-operation/image/23/2301478ca0.png?image_process=format,webp"
+  }'
+
+# 使用你测试成功的token的完整示例
+curl -X POST http://localhost:8000/v1/videos/generations \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiLnlKjmiLdfR28wajV5IiwiZXhwIjoxNzcyMDAyMTM0LCJuYmYiOjE3NTY0NTAxMzQsImlhdCI6MTc1NjQ1MDEzNCwianRpIjoiMTRiYmUzNjA1NmQyNDkxZWE2OWU4NWZiMWE5Y2Y1MjEiLCJ1aWQiOiI2NTFkNGIyMjNmY2IxYjk2OGQyN2ZhNTUiLCJkZXZpY2VfaWQiOiJjY2ZmNTBkMWQ0ZGU0YWVhYWYxMjZjOWMxOWMyMGZiMSIsInR5cGUiOiJyZWZyZXNoIn0.Ba93tq3hskD_zNlHxBgvmH15NAr9ClIulDyqUW6V4os" \
+  -d '{
+    "model": "cogvideox",
+    "prompt": "让这个可爱的女孩动起来，眨眨眼睛，微笑",
+    "image_url": "https://fileup.chatglm.cn/chatglm-operation/image/23/2301478ca0.png?image_process=format,webp"
+  }'
+
+# 成功响应示例：
+# {
+#   "created": 1756575864,
+#   "data": [
+#     {
+#       "conversation_id": "68b33804194457137a1814db",
+#       "cover_url": "https://sfile.chatglm.cn/api/cogvideo/xxx_cover_0.jpeg",
+#       "video_url": "https://sfile.chatglm.cn/api/cogvideo/xxx_0.mp4",
+#       "video_duration": "5s",
+#       "resolution": "3 : 2"
+#     }
+#   ]
+# }
+
+# 使用自己的图片URL示例
+curl -X POST http://localhost:8000/v1/videos/generations \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN_HERE" \
+  -d '{
+    "model": "cogvideox",
+    "prompt": "让图片中的人物动起来，表情生动自然",
+    "image_url": "https://your-domain.com/your-image.jpg"
+  }'
+
+# 带更多参数的完整示例
+curl -X POST http://localhost:8000/v1/videos/generations \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN_HERE" \
+  -d '{
+    "model": "cogvideox",
+    "prompt": "让这个人物开始跳舞，动作优雅流畅",
+    "image_url": "https://example.com/image.png",
+    "video_style": "realistic",
+    "emotional_atmosphere": "happy",
+    "mirror_mode": false
+  }'
